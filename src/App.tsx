@@ -11,6 +11,7 @@ import { cn } from '@/lib/utils'
 import { CALENDAR_URL } from '@/lib/api'
 import { useTheme } from '@/lib/ui'
 import { getAbogados, getClientes, getCobertura, getImpuestos, getNiveles, getTarifas, type Cliente, type Impuesto } from '@/lib/tarifas'
+import { MenuButton } from '@/components/MenuButton'
 
 type Modal = { isOpen: boolean; type: StatusModalType; title: string; message: string }
 const uncertainOf = (error: unknown) => error instanceof Error && 'uncertain' in error && (error as { uncertain?: boolean }).uncertain === true
@@ -107,6 +108,7 @@ function App() {
               <div className="flex items-center gap-3">
                 <h1 className="text-2xl font-bold text-slate-900 tracking-tight">Tarifas y clientes</h1>
                 <ThemeMenu theme={theme} setTheme={setTheme} />
+                <MenuButton />
               </div>
               <p className="text-slate-500 text-sm mt-0.5">Tarifa general, tarifas por cliente, IVA e idioma de la factura</p>
             </div>
